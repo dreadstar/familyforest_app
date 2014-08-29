@@ -1,0 +1,140 @@
+<head>
+  <title>familyforest_app</title>
+</head>
+
+<body>
+	<div class="container">
+	{{> loginButtons}}
+  <h1>Welcome to FamilyForest!</h1>
+	{{#if currentUser}}
+		{{> main}}
+	{{/if}}
+
+  </div>
+</body>
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
+
+<template name="controlpanel">
+  <div class="col-md-4">
+  	<h3>control panel</h3>
+	  <form id="login-form" action="action">
+	      <div>
+	        <input type="email" id="login-email" /><br>
+	        <input type="password" id="login-password" /><br>
+	        <input type="submit" id="login-button" value="Sign in" />
+	     </div>
+	   </form> 
+ </div>
+
+</template>
+
+<template name="viewer">
+  <div class="col-md-8"><h3>viewer</h3></div>
+</template>
+
+<template name="addpersonform">
+  
+</template>
+
+<template name="updatepersonform">
+	<!-- isFemale: Boolean,  nameFirstBirth: String, placeBirth: String, placeDeath: String,  nameLastBirth: String, nameSuffixBirth: String, nameSuffixDeath: String, bio: String, dateBirth: Date, dateDeath: Date -->
+  {{#with person}}
+  <form class='form-horizontal' role='identity-form'>
+    <div class="form-group">
+      <label for="name" class="col-sm-2 control-label">
+      Name at Birth
+      </label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control formitem" id="nameFirstBirth" placeholder="first" value="{{nameFirstBirth}}">
+      </div>
+      <div class="col-sm-4">
+        <input type="text" class="form-control formitem"
+          id="nameLastBirth" 
+          value="{{nameLastBirth}}">
+      </div>
+      <div class="col-sm-2">
+        <input type="text" class="form-control formitem" id="nameSuffixBirth" placeholder="first" value="{{nameSuffixBirth}}">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="name" class="col-sm-2 control-label">
+      Name at Death
+      </label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control formitem" id="nameFirstDeath" placeholder="first" value="{{nameFirstDeath}}">
+      </div>
+      <div class="col-sm-4">
+        <input type="text" class="form-control formitem"
+          id="nameLastDeath" 
+          value="{{nameLastDeath}}">
+      </div>
+      <div class="col-sm-2">
+        <input type="text" class="form-control formitem" id="nameSuffixDeath" placeholder="first" value="{{nameSuffixDeath}}">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="name" class="col-sm-2 control-label">
+      Birth
+      </label>
+      <div class="col-sm-2">
+        <input type="text" class="form-control formitem" id="dateBirth" placeholder="first" value="{{dateBirth}}">
+      </div>
+      <div class="col-sm-4">
+        <input type="text" class="form-control formitem"
+          id="placeBirth" 
+          value="{{placeBirth}}">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="name" class="col-sm-2 control-label">
+      Death
+      </label>
+      <div class="col-sm-2">
+        <input type="text" class="form-control formitem" id="dateDeath" placeholder="first" value="{{dateDeath}}">
+      </div>
+      <div class="col-sm-4">
+        <input type="text" class="form-control formitem"
+          id="placeDeath" 
+          value="{{placeDeath}}">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="name" class="col-sm-2 control-label">
+      Bio
+      </label>
+      <div class="col-sm-8">
+        <textarea class="form-control formitem" id="bio" placeholder="first">{{bio}}</textarea>
+      </div>
+    </div>
+    {{> updateButtons}}
+  </form>
+  {{/with}}
+</template>
+
+<template name="addmarriageform">
+  
+</template>
+
+<template name="updatemarriageform">
+  
+</template>
+
+<template name="addrelationform">
+  
+</template>
+
+<template name="updaterelationform">
+
+</template>
+
+<template name="main">
+	
+		<div class="row">
+{{> controlpanel}} {{> viewer}}
+		</div>
+
+</template>
